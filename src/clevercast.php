@@ -46,9 +46,9 @@ class Clevercast
     $this->username = $username;
     $this->password = $pwd;
     $this->ssl = $ssl;
-    $this->uri = "http://clevercast.com/api/v1/";
+    $this->uri = "http://app.clevercast.com/api/v1/";
     if ($this->ssl) {
-      $this->uri = "https://clevercast.com/api/v1/";
+      $this->uri = "https://app.clevercast.com/api/v1/";
     }
     if ($custom_host) {
       $this->uri = "http://$custom_host/api/v1/";
@@ -105,7 +105,7 @@ class Clevercast
    * Do an items query by passing along the parameters.
    *
    * Returns a json decoded object containing the data returned by clevercast.
-   * For a list of query-string arguments, see https://clevercast.com/api/v1/items/
+   * For a list of query-string arguments, see https://app.clevercast.com/api/v1/items/
    *
    * @param array $args Query-string arguments (key, value) to be sent as part of the get request. 
    *        Values must already be formatted as query-string arguments (eg. array("search" => "bunny", "tags" => "one,two", "page" => 1))
@@ -146,7 +146,7 @@ class Clevercast
    * Do an items query by passing along the full url, already containing the query-string arguments.
    *
    * Returns a json decoded object containing the data returned by clevercast.
-   * For more details, see https://clevercast.com/api/v1/items/
+   * For more details, see https://app.clevercast.com/api/v1/items/
    *
    * @param string $url Full Items Query URL
    * @return stdClass Object containing the JSON decoded response body

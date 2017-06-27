@@ -45,7 +45,7 @@ $html = <<<EOT
   <h1>Demo to create Clevercast item with user generated content</h1>
   <p>This sample demonstrates how to create a form for uploading files directly to Clevercast. This is done using the 'items-hmac-redirect' API endpoint and HMAC authentication.</p>
 
-    <form id="MyForm" action="https://clevercast.com/api/v1/items-hmac-redirect/$account_id/$workflow_profile_id/" enctype="multipart/form-data" method="POST">
+    <form id="MyForm" action="https://app.clevercast.com/api/v1/items-hmac-redirect/$account_id/$workflow_profile_id/" enctype="multipart/form-data" method="POST">
     <fieldset>
     <input type="file" name="file1" /><br />
     <input type="file" name="file2" /><br />

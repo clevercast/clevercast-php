@@ -14,7 +14,7 @@
   options = $.extend({
     interval: 2000,
     progressBar: "#progressbar",
-    progressUrl: "https://clevercast.com/upload_progress",
+    progressUrl: "https://app.clevercast.com/upload_progress",
     start: function() {},
     uploading: function() {},
     complete: function() {},

@@ -1,8 +1,8 @@
 <?php
 require_once 'clevercast.php';
 
-$email = "xxx"; # email used to log into clevercast.com
-$pwd = "xxx";   # password used to log into clevercast.com
+$email = "xxx"; # email used to log into Clevercast
+$pwd = "xxx";   # password used to log into Clevercast
 $local_video_path = "/path/to/video.mp4"; # path to the video/audio/image to be uploaded
 
 $account = "xxxxx"; # the name of your clevercast account (only used to create download and streaming paths, not necessary if you use the player embed code)

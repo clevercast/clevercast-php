@@ -1,8 +1,8 @@
 <?php
 require_once 'clevercast.php';
 
-$email = "xxx"; # email used to log into clevercast.com
-$pwd = "xxx";   # password used to log into clevercast.com
+$email = "xxx"; # email used to log into Clevercast
+$pwd = "xxx";   # password used to log into Clevercast
 
 try {
   $client = new Clevercast($email, $pwd);
