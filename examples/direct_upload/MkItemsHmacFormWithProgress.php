@@ -82,8 +82,8 @@ $html = <<<EOT
     <input type="file" name="file1" /><br />
     <input type="file" name="file2" /><br />
     <input type="submit" value="Upload">
-    <input type="hidden" name="vwflow_info" value="{&quot;redirect&quot;:&quot;$redirect&quot;,&quot;msg_data&quot;:&quot;$msg_data&quot;,&quot;msg_timestamp&quot;:&quot;$msg_timestamp&quot;,&quot;client_data&quot;:&quot;$client_data&quot;}" />
-    <input type="hidden" name="vwflow_hmac" value="$hmac">
+    <input type="hidden" name="item_info" value="{&quot;redirect&quot;:&quot;$redirect&quot;,&quot;msg_data&quot;:&quot;$msg_data&quot;,&quot;msg_timestamp&quot;:&quot;$msg_timestamp&quot;,&quot;client_data&quot;:&quot;$client_data&quot;}" />
+    <input type="hidden" name="item_hmac" value="$hmac">
     </fieldset>
     </form>
     

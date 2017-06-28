@@ -1,7 +1,7 @@
 <?php
 # Sample to demonstrate how to generate a form that uses XMLHttpRequest to upload files directly to Clevercast.
 # This is done using the Clevercast 'items-hmac' resource, which uses HMAC authentication.
-#  Data is transfered using X-VWFLOW-INFO and X-VWFLOW-HMAC headers.
+#  Data is transfered using X-ITEM-INFO and X-ITEM-HMAC headers.
 #
 # Copyright (C) 2016 rambla.eu
 #
@@ -40,7 +40,7 @@ $html = <<<EOT
   </head>
   <body>
   <h1>Demo to create Clevercast item with user generated content</h1>
-  <p>This sample demonstrates the use of XMLHttpRequest to upload files directly to Clevercast. This is done using the 'items-hmac' API endpoint and HMAC authentication. Data is transferred in the X-VWFLOW-INFO and X-VWFLOW-HMAC headers.</p>
+  <p>This sample demonstrates the use of XMLHttpRequest to upload files directly to Clevercast. This is done using the 'items-hmac' API endpoint and HMAC authentication. Data is transferred in the X-ITEM-INFO and X-ITEM-HMAC headers.</p>
   
   <p id="support-notice">Your browser does not support Ajax uploads : you can only use this sample through a regular upload (with hidden form fields).</p>
 
@@ -50,8 +50,8 @@ $html = <<<EOT
   <p><input type="submit" value="Submit" /></p>
   
    <!-- fallback to hidden form fields (and default client_data) for browsers that don't support ajax uploads -->
-   <input type="hidden" name="vwflow_info" value="{&quot;redirect&quot;:&quot;$redirect&quot;,&quot;msg_data&quot;:&quot;$msg_data&quot;,&quot;msg_timestamp&quot;:&quot;$msg_timestamp&quot;,&quot;client_data&quot;:&quot;$client_data&quot;}" />
-  <input type="hidden" name="vwflow_hmac" value="$hmac"></form>
+   <input type="hidden" name="item_info" value="{&quot;redirect&quot;:&quot;$redirect&quot;,&quot;msg_data&quot;:&quot;$msg_data&quot;,&quot;msg_timestamp&quot;:&quot;$msg_timestamp&quot;,&quot;client_data&quot;:&quot;$client_data&quot;}" />
+  <input type="hidden" name="item_hmac" value="$hmac"></form>
 
   <script>
   // Function that will allow us to know if Ajax uploads are supported
@@ -127,9 +127,9 @@ $html = <<<EOT
     if (! passthru) {
       passthru = "$client_data";
     }
-    var vwflow_info = '{"redirect":"$redirect", "msg_data":"$msg_data", "msg_timestamp":"$msg_timestamp", "client_data":"' + passthru + '"}';
-    xhr.setRequestHeader("X-VWFLOW-INFO", vwflow_info);
-    xhr.setRequestHeader("X-VWFLOW-HMAC", "$hmac");
+    var item_info = '{"redirect":"$redirect", "msg_data":"$msg_data", "msg_timestamp":"$msg_timestamp", "client_data":"' + passthru + '"}';
+    xhr.setRequestHeader("X-ITEM-INFO", item_info);
+    xhr.setRequestHeader("X-ITEM-HMAC", "$hmac");
     xhr.addEventListener('readystatechange', onreadystatechangeHandler, false);
 
     // Fire!

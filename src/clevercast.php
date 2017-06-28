@@ -298,12 +298,12 @@ class Clevercast
 	  $msg_data = uniqid(rand(), true); # generate unique id
     date_default_timezone_set('Europe/Brussels');
     $msg_timestamp = time() + $hmac_valid_seconds; # requests using this page will be valid during three hours
-    $vwflow_hmac = md5($auth_secret.$msg_timestamp.$msg_data);
+    $item_hmac = md5($auth_secret.$msg_timestamp.$msg_data);
 
-    $vwflow_info = <<<EOT
+    $item_info = <<<EOT
 {"msg_data":"$msg_data","msg_timestamp":"$msg_timestamp","client_data":"$client_data"}
 EOT;
-    $headers = array('Content-Type' => 'multipart/form-data', 'x-vwflow-info' => $vwflow_info, "x-vwflow-hmac" => $vwflow_hmac);
+    $headers = array('Content-Type' => 'multipart/form-data', 'x-item-info' => $item_info, "x-item-hmac" => $item_hmac);
     $hooks = new Requests_Hooks();
     $hooks->register('curl.before_send', function($fp, $data = array()) use ($a_item){
         curl_setopt($fp, CURLOPT_POSTFIELDS, $a_item);
