@@ -174,7 +174,11 @@ class Clevercast
    */
 	function createItem($path, $name = null, $description = null, $tags = null, $schema = null, $wprofile_id = null, $client_data = null, $input_data = null, $producer = null, $language = null, $task_to_mails = null)
 	{
-    $a_item = array("src" => "@$path", "name" => $name, "description" => $description, "wprofile_id" => $wprofile_id);
+    // There is a new Variable included with curl in PHP 5.5: CURLOPT_SAFE_UPLOAD this is set to false by default in PHP 5.5 and is switched to a default of true in PHP 5.6.
+    // This will prevent the '@' upload modifier from working for security reasons - user input could contain malicious upload requests -> using the CURLFile class instead
+    $curl_file_upload = new CURLFile($path);
+    $a_item = array("src" => $curl_file_upload, "name" => $name, "description" => $description, "wprofile_id" => $wprofile_id);
+    // $a_item = array("src" => "@$path", "name" => $name, "description" => $description, "wprofile_id" => $wprofile_id);
     $data = array();
     if ($tags) {
       $data["tags"] = $tags;
